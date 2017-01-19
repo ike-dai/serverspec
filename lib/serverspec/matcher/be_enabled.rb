@@ -2,6 +2,8 @@ RSpec::Matchers.define :be_enabled do
   match do |subject|
     if subject.class.name == 'Serverspec::Type::Service'
       subject.enabled?(@level, @under)
+    elsif subject.class.name == 'Serverspec::Type::ZabbixConfig'
+      subject.enabled?(@itemkey)
     else
       subject.enabled?
     end
@@ -20,5 +22,9 @@ RSpec::Matchers.define :be_enabled do
 
   chain :under do |under|
     @under = under
+  end
+
+  chain :with_itemkey do |key|
+    @itemkey = key
   end
 end

@@ -38,3 +38,7 @@ require 'serverspec/matcher/have_entry'
 require 'serverspec/matcher/have_site_application'
 require 'serverspec/matcher/have_site_bindings'
 require 'serverspec/matcher/have_virtual_dir'
+
+# zabbix_config
+require 'serverspec/matcher/be_normal'
+require 'serverspec/matcher/be_valid'
